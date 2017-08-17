@@ -1,10 +1,20 @@
-<button {{action "unloadComment"}}>Unload Comment</button>
 <button {{action "loadComment"}}>Load Comment</button>
+<button {{action "unloadComment"}}>Unload Comment</button>
+
 <hr>
+
 Title: {{post.title}}<br>
 Comments ({{post.comments.length}}):
 <ul>
   {{#each post.comments as |comment|}}
+    <li>{{comment.name}}</li>
+  {{/each}}
+</ul>
+
+<hr>
+All comments ({{allComments.length}}):
+<ul>
+  {{#each allComments as |comment|}}
     <li>{{comment.name}}</li>
   {{/each}}
 </ul>

@@ -6,8 +6,8 @@ export default Ember.Controller.extend({
   init() {
     this._super(...arguments);
     this.pushPost();
-    this.pushComment();
     this.set('post', this.get('store').peekRecord('post', 1));
+    this.set('allComments', this.get('store').peekAll('comment'));
   },
 
   pushPost() {
