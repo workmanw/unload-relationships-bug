@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
 
   actions: {
     unloadComment() {
-      let comment = this.get('post.comments').objectAt(0);
+      let comment = this.get('allComments').objectAt(0);
       if (comment) {
         comment.unloadRecord();
       }
