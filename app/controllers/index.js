@@ -41,9 +41,19 @@ export default Ember.Controller.extend({
 
   actions: {
     unloadComment() {
+      // client-side delete
       let comment = this.get('allComments').objectAt(0);
       if (comment) {
         comment.unloadRecord();
+      }
+    },
+
+    clientSideDeleteComment() {
+      // client-side delete
+      let comment = this.get('allComments').objectAt(0);
+      if (comment) {
+        comment.destroyRecord({ adapterOptions: { clientSideDelete: true } }).
+          then(() => comment.unloadRecord());
       }
     },
 
